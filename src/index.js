@@ -6,12 +6,12 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/', function (req, res, next) {
   res.send('Hello World');
 })
 
 //app.post('/releases', releaseHandlers.post);
-app.post('/errors', (req, res) => {
+app.post('/errors', function (req, res, next)  {
   console.log(req.body);
   res.status(400).send();
 });
